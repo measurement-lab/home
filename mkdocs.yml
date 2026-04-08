@@ -3,6 +3,8 @@ site_name: メジャーメントラボ
 theme:
   name: material
   features:
+    - navigation.tabs
+
     - toc.integrate
   language: ja
 
