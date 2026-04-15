@@ -10,8 +10,8 @@ theme:
 
 extra:
   analytics:
-    provider: google
-    property: G-HMS51W1X76
+      provider: google
+      property: G-HMS51W1X76
 plugins:
   - search:
       lang: ja
