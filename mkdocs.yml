@@ -2,14 +2,11 @@ site_name: メジャーメントラボ
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.tabs
-
     - toc.integrate
   language: ja
-
-extra_javascript:
-  - js/analytics.js
 
 #extra:
 #  analytics:
