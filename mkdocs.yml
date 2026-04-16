@@ -11,7 +11,7 @@ theme:
 extra:
   analytics:
     provider: google
-    gtag: G-HMS51W1X76
+    property: G-HMS51W1X76
 
 plugins:
   - search:
