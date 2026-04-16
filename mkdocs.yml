@@ -8,10 +8,10 @@ theme:
     - toc.integrate
   language: ja
 
-extra:
-  analytics:
-    provider: google
-    property: G-HMS51W1X76
+#extra:
+#  analytics:
+#    provider: google
+#    property: G-HMS51W1X76
 
 plugins:
   - search:
