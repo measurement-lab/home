@@ -2,9 +2,9 @@ site_name: メジャーメントラボ
 
 theme:
   name: material
-#  custom_dir: overrides
   features:
     - navigation.tabs
+    - navigation.top
     - toc.integrate
   language: ja
 
@@ -16,3 +16,35 @@ extra:
 plugins:
   - search:
       lang: ja
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+
+- About:
+    - About: index.md
+- visautilsパッケージ:
+    - 1_WF1968機器を制御する:
+      - 00_接続: visautils/使い方/1_WF1968機器を制御する/00_接続.md
+      - 01_任意波形データの送信: visautils/使い方/1_WF1968機器を制御する/01_任意波形データの送信.md
+    - 2_DL950機器を制御する:
+      - 00_接続: visautils/使い方/2_DL950機器を制御する/00_接続.md
+      - 01_波形データの取り込み: visautils/使い方/2_DL950機器を制御する/01_波形データの取り込み.md
+    - 3_2台を同時に制御する:
+      - 00_接続図の説明: visautils/使い方/3_2台を同時に制御する/00_接続図の説明.md
+      - 01_任意波形データの送受信: visautils/使い方/3_2台を同時に制御する/01_任意波形データの送受信.md
+      - 02_DL950機器のクロック信号の違い: visautils/使い方/3_2台を同時に制御する/02_DL950機器のクロック信号の違い.md
+      - 03_生成した任意波形データの送受信: visautils/使い方/3_2台を同時に制御する/03_生成した任意波形データの送受信.md
+      - 04_visautilsパッケージの間違いやすい使い方: visautils/使い方/3_2台を同時に制御する/04_visautilsパッケージの間違いやすい使い方.md
+      - 05_測定対象物を使った測定: visautils/使い方/3_2台を同時に制御する/05_測定対象物を使った測定.md
+      - 06_電圧および周波数をパラメータとした測定: visautils/使い方/3_2台を同時に制御する/06_電圧および周波数をパラメータとした測定.md
+- Python関連:
+    - 1_環境構築: Python関連/1_環境構築.md
+    - 2_仮想環境: Python関連/2_仮想環境.md
+    - 3_condaコマンドとpipコマンド: Python関連/3_condaコマンドとpipコマンド.md
