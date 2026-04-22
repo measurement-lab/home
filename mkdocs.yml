@@ -22,6 +22,8 @@ plugins:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - toc:
+      toc_depth: 1-2
 
 extra_javascript:
   - javascripts/mathjax.js
