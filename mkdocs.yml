@@ -1,4 +1,5 @@
 site_name: メジャーメントラボ 
+site_url: https://measure-labo.github.io/home/
 
 theme:
   name: material
