@@ -1,0 +1,1337 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://measure-labo.github.io/home/Python%E9%96%A2%E9%80%A3/2_%E4%BB%AE%E6%83%B3%E7%92%B0%E5%A2%83/">
+      
+      
+        <link rel="prev" href="../1_%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">
+      
+      
+        <link rel="next" href="../3_conda%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8pip%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>2_仮想環境 - メジャーメントラボ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HMS51W1X76"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HMS51W1X76",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HMS51W1X76",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1_" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="メジャーメントラボ" class="md-header__button md-logo" aria-label="メジャーメントラボ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            メジャーメントラボ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2_仮想環境
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/1_WF1968%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A/" class="md-tabs__link">
+          
+  
+  
+  visautilsパッケージ
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1_%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" class="md-tabs__link">
+          
+  
+  
+  Python関連
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="メジャーメントラボ" class="md-nav__button md-logo" aria-label="メジャーメントラボ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    メジャーメントラボ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    visautilsパッケージ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    visautilsパッケージ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1_WF1968機器を制御する
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1_WF1968機器を制御する
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/1_WF1968%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_接続
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/1_WF1968%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/01_%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%80%81%E4%BF%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01_任意波形データの送信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2_DL950機器を制御する
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2_DL950機器を制御する
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/2_DL950%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_接続
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/2_DL950%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/01_%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%96%E3%82%8A%E8%BE%BC%E3%81%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01_波形データの取り込み
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3_2台を同時に制御する
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3_2台を同時に制御する
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A%E5%9B%B3%E3%81%AE%E8%AA%AC%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_接続図の説明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/01_%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%80%81%E5%8F%97%E4%BF%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01_任意波形データの送受信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/02_DL950%E6%A9%9F%E5%99%A8%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E4%BF%A1%E5%8F%B7%E3%81%AE%E9%81%95%E3%81%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02_DL950機器のクロック信号の違い
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/03_%E7%94%9F%E6%88%90%E3%81%97%E3%81%9F%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%80%81%E5%8F%97%E4%BF%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03_生成した任意波形データの送受信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/04_visautils%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E9%96%93%E9%81%95%E3%81%84%E3%82%84%E3%81%99%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04_visautilsパッケージの間違いやすい使い方
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/05_%E6%B8%AC%E5%AE%9A%E5%AF%BE%E8%B1%A1%E7%89%A9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E6%B8%AC%E5%AE%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05_測定対象物を使った測定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/06_%E9%9B%BB%E5%9C%A7%E3%81%8A%E3%82%88%E3%81%B3%E5%91%A8%E6%B3%A2%E6%95%B0%E3%82%92%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%A8%E3%81%97%E3%81%9F%E6%B8%AC%E5%AE%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06_電圧および周波数をパラメータとした測定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python関連
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python関連
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1_環境構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2_仮想環境
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2_仮想環境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1_" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1_仮想環境が必要となる背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2_独立したPython環境を提供する仮想環境
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_conda%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8pip%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3_condaコマンドとpipコマンド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>2_仮想環境</h1>
+
+<h2 id="1_">1_仮想環境が必要となる背景</h2>
+<ul>
+<li>Python環境を構築するには，Miniforgeリポジトリを使い，パッケージのインストールはcondaコマンドを使うことは既に説明しました．</li>
+<li>condaコマンドをネットで調べてみると，必ず，<strong>仮想環境</strong>という用語が目についてきます．仮想環境とは何なんでしょうか．どのようなケースで必要となってくるのでしょうか．ここでは，仮想環境について，なぜ必要なのかをまず説明します．</li>
+</ul>
+<h3 id="11_">1.1_パッケージのバージョンの通常の指定方法</h3>
+<ul>
+<li>例えば，visautilsパッケージは単独のPythonスクリプトではなく，numpyパッケージ，matplotlibパッケージ他，幾つかの別のパッケージが必要（内部で使っている）です．</li>
+<li>これらの別パッケージの使っている機能は，visautilsパッケージを実装（作成）した段階での，それらの別パッケージのバージョンで決めます．つまり，visautilsパッケージを実装した段階で，numpyパッケージのバージョンが2.4だったなら，2.4未満のnumpyパッケージでは上手く動作しない（機能が不足している）かもしれません．</li>
+<li>そこで，visautilsパッケージを始めとして，Pythonのパッケージは，インストールする際に，必要となる別パッケージと，そのバージョンの条件を確認する機能があります．上記の例であれば，「<strong>バージョン2.4以降のnumpyパッケージを必要</strong>とする」なんて具合です．</li>
+<li>必要となる別パッケージがインストールされていない場合は，バージョンも満足する状態で別パッケージを<strong>自動で追加インストール</strong>してくれます．</li>
+</ul>
+<h3 id="12_">1.2_特定のバージョンを指定するパッケージ</h3>
+<ul>
+<li>Pythonのパッケージは普通，<strong>後方互換性</strong>を満足するように作られています．つまり，建前上は，<strong>新しいバージョンのパッケージは，古いバージョンのパッケージを置き換える</strong>ことができます．</li>
+<li>すると，<strong>全てのパッケージが最新のバージョンになるようにしておけば良い</strong>（問題無い）ことになるのですが，実際には，幾つかのパッケージで，後方互換性を満足しないケースが存在します．つまり，「○○○のパッケージは，バージョンx.y.zに限定する」なんてことが実際にはあります．</li>
+<li>例えば，このドキュメントを作成するのに使っている，mkdocs-to-pdfパッケージは，バージョン62.3のweasyprintパッケージのみ必要としています．実際に，mkdocs-to-pdfパッケージをインストールすると，バージョン62.3のweasyprintパッケージがインストールされます．しかし，2026年4月現在，最新のweasyprintパッケージのバージョンは68.1です（condaコマンドでインストールできる最新バージョンは67.0です）．</li>
+</ul>
+<h3 id="13_">1.3_パッケージ間で異なるバージョンが必要となるケース</h3>
+<ul>
+<li>上記に紹介したmkdocs-to-pdfパッケージのケースだと，mkdocs-to-pdfパッケージをインストールして，weasyprintパッケージがインストールされていなければ，バージョン62.3のweasyprintパッケージが自動で追加インストールされます．</li>
+<li>しかし，weasyprintパッケージを必要とする別のパッケージがあり，それがバージョン63以降のweasyprintパッケージを必要とした場合，どうなるのでしょうか．実際に，そのような状況になった場合，どのようになるのは良く分かりません．パッケージのインストールに失敗するのか（これが一番可能性が高いです），インストールには成功するが，いずれかのパッケージを実行した際に不具合が発生してしまうのか（Pythonの仕様として決まっているのかもしれませんが，そこまで詳しく知りません）． </li>
+</ul>
+<h2 id="2_python">2_独立したPython環境を提供する仮想環境</h2>
+<ul>
+<li>上記に説明したように，Pythonには便利なパッケージが大量に提供されている反面，それらのパッケージは，別のパッケージを必要とし，それらの必要としているパッケージのバージョンが競合（不一致）となるケースがあります．</li>
+<li>これを回避するのが，仮想環境という仕組みです．仮想環境というのは，<strong>名前を付けてPython環境を丸ごと新たに構築する仕組み</strong>です．パッケージのバージョンが競合するようなケースでは，新たに仮想環境（別のPython環境）を構築して，そちら側でパッケージをインストールします．</li>
+<li>仮想環境の構築や，切り替えなどは全てcondaコマンドを使って行うことができます．</li>
+</ul>
+<h3 id="21_conda">2.1_condaコマンドを使った仮想環境の操作</h3>
+<ul>
+<li>下記にcondaコマンドを使った仮想環境の操作手順を示します．</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>コマンド</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仮想環境の一覧</td>
+<td><strong>conda info -e</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>仮想環境の追加</td>
+<td><strong>conda create -n 仮想環境名 python=x.xx</strong></td>
+<td>仮想環境名にコンマは使えない<br>（<strong>Python3.9</strong>などコンマを使った仮想環境名はダメ）</td>
+</tr>
+<tr>
+<td>仮想環境の変更</td>
+<td><strong>conda activate 仮想環境名</strong>（仮想環境へ移動）<br><strong>conda deactivate</strong>（仮想環境から戻る）</td>
+<td></td>
+</tr>
+<tr>
+<td>仮想環境の削除</td>
+<td><strong>conda remove --name 仮想環境名 --all</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="22_">2.2_仮想環境の構築の手順例</h3>
+<ul>
+<li>具体的に，condaコマンドを使って仮想環境を構築してみます（構築した仮想環境は簡単に削除できますので，実際にやってみても問題ありません）．</li>
+<li>まず最初に，Miniforge Promptで，下記のコマンドを実行してみて下さい．</li>
+</ul>
+<pre><code class="language-txt">conda info -e
+</code></pre>
+<ul>
+<li>おそらく，<strong>base * c:\users\ユーザ名\miniforge3</strong> といった具合に表示されたと思います．これは，まだ何も仮想環境が無い状態を示しています．<strong>base</strong>というのは仮想環境ではなくベースであるPython環境で，その次の <strong>*</strong> は，ベース環境がアクティブ（有効）であることを意味し，それ以降は，そのPython環境のインストール先のパスです．</li>
+</ul>
+<pre><code class="language-txt">base * c:\users\ユーザ名\miniforge3
+</code></pre>
+<ul>
+<li>では，新たに別の仮想環境を追加してみましょう．ここでは簡単のため，仮想環境名をtestとします．上記の説明にも記述してあるように，新たに追加する仮想環境では，ベース環境とは別のバージョンのPythonをインストールすることも可能です（同じバージョンでも問題ありません）．但し注意すべき点は，仮想環境名にコンマは使えません．Pythonのバージョンを変えた仮想環境を追加しようとして，Python3.xxとかいう仮想環境名を使ってしまわないように注意しましょう（経験則）．</li>
+</ul>
+<pre><code class="language-txt">conda create -n test python=3.13
+</code></pre>
+<ul>
+<li>続けて，下記のコマンドを再実行して，作成した仮想環境が正しく追加されているかどうか確認してみて下さい．</li>
+<li>先ほど追加で構築した仮想環境が，今度は表示されるはずです．</li>
+</ul>
+<pre><code class="language-txt">conda info -e
+
+base * c:\users\ユーザ名\miniforge3
+test   c:\users\ユーザ名\miniforge3\envs\test
+</code></pre>
+<ul>
+<li>仮想環境が正しく追加されていることを確認したら，今度は，追加した仮想環境に切り替えてみましょう．</li>
+</ul>
+<pre><code class="language-txt">conda activate test
+</code></pre>
+<ul>
+<li>仮想環境へ問題なく切り替えられたら，プロンプト名がbaseから仮想環境名に変更になっているハズです．さらに，下記のコマンドを実行してみて下さい．</li>
+</ul>
+<pre><code class="language-txt">conda info -e
+
+base   c:\users\ユーザ名\miniforge3
+test * c:\users\ユーザ名\miniforge3\envs\test
+</code></pre>
+<ul>
+<li>今度は，仮想環境の方に*が付いているハズです．これは，仮想環境側がアクティブ（有効）となっていることを表しています．</li>
+<li>
+<p>仮想環境に切り替えたら，ベース環境と同じく，必要となるパッケージを一通りインストールします．残念ながら，ベース環境でインストールしたパッケージ群は，仮想環境側ではインストールされていません．ベース環境をインストールした直後の状態と同じく，追加した直後の仮想環境は，何もパッケージがインストールされていない状態なのです．</p>
+</li>
+<li>
+<p>バージョンが競合するようなパッケージは，それ専用の仮想環境を構築し，その仮想環境に切り替えた後，該当するパッケージをインストールするようにすれば，バージョンの競合を回避することができます．</p>
+</li>
+</ul>
+<h3 id="23_">2.3_仮想環境からベースに戻る手順</h3>
+<ul>
+<li>仮想環境からベースに戻るのも，condaコマンドを使います．下記のコマンドを実行して下さい．</li>
+</ul>
+<pre><code class="language-txt">conda deactivate
+</code></pre>
+<ul>
+<li>また，Miniforge Promptを閉じても，仮想環境からベースに戻ります．これは，逆にいうと，Miniforge Promptを開く度に，仮想環境に切り替える必要があるということです．</li>
+</ul>
+<h3 id="24_">2.4_仮想環境の削除</h3>
+<ul>
+<li>作成した仮想環境は，condaコマンドで簡単に削除できます．</li>
+<li>まず，ベースに切り替えた状態で，下記のコマンドを実行して下さい．該当する仮想環境が（インストールしたパッケージも含めて全て）削除されます．</li>
+</ul>
+<pre><code class="language-txt">conda remove --name 仮想環境名 --all
+</code></pre>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

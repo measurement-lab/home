@@ -1,0 +1,1387 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://measure-labo.github.io/home/visautils/%E4%BD%BF%E3%81%84%E6%96%B9/3_2%E5%8F%B0%E3%82%92%E5%90%8C%E6%99%82%E3%81%AB%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/03_%E7%94%9F%E6%88%90%E3%81%97%E3%81%9F%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%80%81%E5%8F%97%E4%BF%A1/">
+      
+      
+        <link rel="prev" href="../02_DL950%E6%A9%9F%E5%99%A8%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E4%BF%A1%E5%8F%B7%E3%81%AE%E9%81%95%E3%81%84/">
+      
+      
+        <link rel="next" href="../04_visautils%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E9%96%93%E9%81%95%E3%81%84%E3%82%84%E3%81%99%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B9/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>03_生成した任意波形データの送受信 - メジャーメントラボ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HMS51W1X76"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HMS51W1X76",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HMS51W1X76",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1_" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../../.." title="メジャーメントラボ" class="md-header__button md-logo" aria-label="メジャーメントラボ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            メジャーメントラボ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03_生成した任意波形データの送受信
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../1_WF1968%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A/" class="md-tabs__link">
+          
+  
+  
+  visautilsパッケージ
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Python%E9%96%A2%E9%80%A3/1_%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" class="md-tabs__link">
+          
+  
+  
+  Python関連
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="メジャーメントラボ" class="md-nav__button md-logo" aria-label="メジャーメントラボ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    メジャーメントラボ
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    visautilsパッケージ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    visautilsパッケージ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1_WF1968機器を制御する
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1_WF1968機器を制御する
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_WF1968%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_接続
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_WF1968%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/01_%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%80%81%E4%BF%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01_任意波形データの送信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2_DL950機器を制御する
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2_DL950機器を制御する
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_DL950%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/00_%E6%8E%A5%E7%B6%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_接続
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_DL950%E6%A9%9F%E5%99%A8%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B/01_%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%96%E3%82%8A%E8%BE%BC%E3%81%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01_波形データの取り込み
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3_2台を同時に制御する
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3_2台を同時に制御する
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_%E6%8E%A5%E7%B6%9A%E5%9B%B3%E3%81%AE%E8%AA%AC%E6%98%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00_接続図の説明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%80%81%E5%8F%97%E4%BF%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01_任意波形データの送受信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_DL950%E6%A9%9F%E5%99%A8%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E4%BF%A1%E5%8F%B7%E3%81%AE%E9%81%95%E3%81%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02_DL950機器のクロック信号の違い
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03_生成した任意波形データの送受信
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03_生成した任意波形データの送受信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1_" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1_任意波形データの種類
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2_制御点形式の任意波形データ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_visautils%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E9%96%93%E9%81%95%E3%81%84%E3%82%84%E3%81%99%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04_visautilsパッケージの間違いやすい使い方
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_%E6%B8%AC%E5%AE%9A%E5%AF%BE%E8%B1%A1%E7%89%A9%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E6%B8%AC%E5%AE%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05_測定対象物を使った測定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_%E9%9B%BB%E5%9C%A7%E3%81%8A%E3%82%88%E3%81%B3%E5%91%A8%E6%B3%A2%E6%95%B0%E3%82%92%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%A8%E3%81%97%E3%81%9F%E6%B8%AC%E5%AE%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06_電圧および周波数をパラメータとした測定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python関連
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python関連
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python%E9%96%A2%E9%80%A3/1_%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1_環境構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python%E9%96%A2%E9%80%A3/2_%E4%BB%AE%E6%83%B3%E7%92%B0%E5%A2%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2_仮想環境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python%E9%96%A2%E9%80%A3/3_conda%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8pip%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3_condaコマンドとpipコマンド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>03_生成した任意波形データの送受信</h1>
+
+<h2 id="1_">1_任意波形データの種類</h2>
+<ul>
+<li>WF1968機器から送信する任意波形データは，下記に示す2種類の任意波形データが使えます．<ul>
+<li>配列形式</li>
+<li>制御点形式</li>
+</ul>
+</li>
+<li><strong>visautils</strong>パッケージは，等間隔で電圧値のみのデータを指定する配列形式の他に，<strong>制御点形式</strong>の任意波形データを使うこともできます．</li>
+<li>制御点形式の任意波形データの特徴は，下記のようになります．<ul>
+<li>2～10000個の任意のデータ数</li>
+<li>横軸（時間）と縦軸（電圧）の値をデータとする</li>
+<li>時間の間隔は任意（等間隔でなくて良い）</li>
+</ul>
+</li>
+<li>一見，配列形式よりも（時間の間隔が任意の）制御点形式の方がメリットがあるように思えますが， 実際の測定において，WF1968機器から送信する電圧信号は複雑な波形になることが多く，時間刻みは等間隔とするのが自然です．また，WF1968機器に転送する波形データも，縦軸成分（電圧値）は2バイト（16bit）なのに対し，横軸成分（時間）は4バイト（32bit）と2倍のデータとなるので，配列形式のデータ数の1/3以下でないと，制御点形式はPCからWF1968機器に任意波形データを転送する時間は長くなってしまいます（WF1968機器はDL950機器と比べて波形データの転送時間が遅い）．</li>
+<li>ここでは，まず最初に，ユーザ自ら任意波形データを作成する手順を紹介し，次に，visautilsパッケージで制御点形式の任意波形データを使う方法を紹介します．</li>
+</ul>
+<h3 id="11_">1.1_任意波形データを作成する上での注意点</h3>
+<ul>
+<li>ユーザ自ら任意波形データを作成する上で，注意すべき点があります．</li>
+<li>
+<p>ここで，正弦波の任意波形データを，numpy配列として生成するPythonスクリプトを例として説明します．</p>
+</li>
+<li>
+<p>下記のPythonスクリプトは，1周期のデータ数が8個となる正弦波の任意波形データのnumpy配列を生成する例です．</p>
+</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+
+ndata = 8
+
+xs = np.linspace(0, 1, ndata, endpoint=False)
+ts = 2*np.pi*xs
+sin_wave = np.sin(ts)
+</code></pre>
+<ul>
+<li>これに対し，下記のPythonスクリプトは，間違った正弦波の任意波形データのnumpy配列を生成する例です．</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+
+ndata = 8
+
+xs = np.linspace(0, 1, ndata)
+ts = 2*np.pi*xs
+sin_wave = np.sin(ts)
+</code></pre>
+<ul>
+<li>上記2つのPythonスクリプトの違いが分かるでしょうか？</li>
+<li>正しいPythonスクリプトは，<strong>np.linspace</strong>()関数で，<strong>endpoint=False</strong>の引数が指定されていますが，間違ったPythonスクリプトは，該当する引数がありません．</li>
+<li>np.linspace()関数のendpoint=False引数の指定は，最後の値を含む/含まないの指定です．上記の正しいPythonスクリプトの例では，xs変数に，0～1の間を8個の数値の配列を生成していますが，endpoint=False引数を指定することで，最後の値である<strong>1</strong>を含まない8個の数値の配列となります．</li>
+<li>一方，間違ったPythonスクリプトの例では，xs変数に最後の値である1を含んだ8個の数値の配列を生成してしまいます．</li>
+<li><strong>1周期の波形データは次の周期の最初のデータは含めません</strong>．上記の正弦波データの例では，角度0～2πの正弦波のデータであっても，最後の2πの角度は含めません．</li>
+<li>
+<p>すると，最後の角度はどうなるのでしょうか？それは，任意波形データのデータ数によって決まります．</p>
+</li>
+<li>
+<p>下記に，正しい任意波形データと間違った任意波形データの両者が，目標となる正弦波データと比べて，どのようになっているのかを示しています．うっかり，次の周期の最初のデータを含めてしまうと，所望の波形データとならないことが分かると思います．</p>
+</li>
+</ul>
+<p><img alt="正しい任意波形データと間違った任意波形データの違い.png" src="../%E6%AD%A3%E3%81%97%E3%81%84%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%A8%E9%96%93%E9%81%95%E3%81%A3%E3%81%9F%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E9%81%95%E3%81%84.png" /></p>
+<h2 id="2_">2_制御点形式の任意波形データ</h2>
+<ul>
+<li>配列形式の任意波形データは，上記のPythonスクリプトで示したように，縦軸（電圧）のデータをnumpy配列として生成すれば良いです．</li>
+<li>ここでは，もう一方の任意波形データである，制御点形式の任意波形データの生成と，WF1968機器で制御点形式の任意波形データの送信方法に関して紹介します．</li>
+</ul>
+<h3 id="21_">2.1_制御点形式の任意波形データの生成</h3>
+<ul>
+<li>制御点形式の任意波形データは，横軸（時間）と縦軸（電圧）のそれぞれをnumpy配列として生成します．</li>
+<li>ここでは，デューティ比30[%]の方形波データを，制御点形式で任意波形データを作成します．</li>
+<li>まず，デューティ比30[%]の方形波データということは，1周期の前半30[%]の振幅が1，残りが-1となる波形データということになります．</li>
+<li>周波数が50[Hz]の場合，周期は20[ms]となるので，デューティ比30[%]は，時刻6[ms]までは振幅1，それ以降は振幅-1の波形データとすれば良いことになります．</li>
+<li>問題は，任意波形データの最後のデータを，どう定義するかです．上記の注意点で紹介したように，任意波形データは次の周期の最初のデータを含めてはいけません．その直前のデータを最後のデータとすべきなのです．</li>
+<li>この場合，一つの指標となるのは，DL950機器で取込む波形データのデータ数です．例えば，DL950機器で取込む波形データのデータ数が4096個の場合，WF1968機器から送信する制御点形式の任意波形データの最後のデータは，時間で表すと，4095/4096周期[s]のデータとすれば良いことになります．</li>
+<li>今までは，WF1968機器から送信する任意波形データのデータ数は，DL950機器で取込む波形データのデータ数と一致していたので，両者を<strong>ndata</strong>としていましたが，ここでは，WF1968機器から送信する任意波形データのデータ数を<strong>fg_ndata</strong>とすることにします．</li>
+<li>すると，制御点形式の任意波形データの生成は，下記のPythonスクリプトのようになります．numpy配列<strong>ts</strong>が横軸（時間），<strong>vs</strong>が縦軸（電圧）となります．</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+
+freq  = 50
+ndata = 4096
+duty  = 30
+
+ts = np.zeros(fg_ndata, dtype=np.float64)
+vs = np.zeros(fg_ndata, dtype=np.float64)
+t1 = period*duty/100
+t2 = t1 + 1.0/(freq*ndata)
+t3 = period - 1.0/(freq*ndata)
+
+ts[0] = 0.0
+vs[0] = 1.0
+
+ts[1] = t1
+vs[1] = 1.0
+
+ts[2] = t2
+vs[2] = -1.0
+
+ts[3] = t3
+vs[3] = -1.0
+</code></pre>
+<h3 id="22_">2.2_制御点形式の任意波形データの送信</h3>
+<ul>
+<li>visautilsパッケージでは，任意波形データはデフォルトで配列形式です．</li>
+<li>制御点形式の任意波形データを送信するには，下記の手続きが異なります．<ul>
+<li>mesDeviceパッケージのfuncgenクラスインスタンスを生成する時に，<strong>controlAW=True</strong>引数を追加し，<strong>cap_ndata</strong>引数にDL950機器で取込む波形データのデータ数を設定する</li>
+<li>任意波形データは，<strong>send_controlAW</strong>()関数を使って送信する</li>
+</ul>
+</li>
+<li>cap_ndata引数にDL950機器で取込む波形データのデータ数を設定するのは，WF1968機器から送信するクロック信号に必要なためです．通常は，WF1968機器から送信する電圧信号のデータ数 = DL950機器で取込む電圧波形のデータ数となるので，両者は一致するのですが，制御点形式の任意波形データでは，両者は必ずしも一致しないため，cap_ndata引数に，DL950機器で取込む波形データのデータ数を設定する必要があります．</li>
+<li>WF1968機器とDL950機器の接続は下記に示すように，WF1968機器のサブチャネルからトリガ信号とクロック信号を送信し，DL950機器の外部クロック端子と装着モジュールの(2,2)チャネルに接続します．</li>
+</ul>
+<p><img alt="外部トリガ＆外部クロック接続2.png" src="../%E5%A4%96%E9%83%A8%E3%83%88%E3%83%AA%E3%82%AC%EF%BC%86%E5%A4%96%E9%83%A8%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E6%8E%A5%E7%B6%9A2.png" /></p>
+<ul>
+<li>下記に，制御点形式の方形波データの任意波形データを生成し，WF1968機器から送信して，DL950機器で取込むPythonスクリプトの例を紹介します．</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+from visautils import mesDevice, visaDL950, visaWF1968
+
+freq = 50
+fg_ndata = 4
+ndata    = 4096
+ex_range = 2
+amp_gain = 1
+fg_tch   = 2
+fg_clch  = 1
+vch      = (1,1)
+os_tch   = (2,2)
+os_clch  = &quot;EXT&quot;
+average  = 20
+
+WF1968 = visaWF1968.visaWF1968(&quot;ENV_WF1968_RESNAME&quot;)
+WF1968.open()
+DL950  = visaDL950.visaDL950(&quot;ENV_DL950_RESNAME&quot;)
+DL950.open()
+
+period = 1/freq
+WF1968.reset()
+
+funcgen = mesDevice.funcgen(freq, fg_ndata, ex_range, amp_gain, fg_tch, fg_clch, controlAW=True, cap_ndata=ndata)
+funcgen.initial_setting(WF1968)
+
+(ts,vs) = control_square(period, 30)
+funcgen.send_controlAW(ts, vs)
+
+oscillo = mesDevice.oscillo(freq, ndata, os_tch, os_clch, average=average)
+chs = [vch, os_tch]
+oscillo.initial_setting(DL950, chs)
+
+chs = [vch]
+vss = oscillo.capture_waves(chs)
+
+def control_square(period, duty):
+    ts = np.zeros(fg_ndata, dtype=np.float64)
+    vs = np.zeros(fg_ndata, dtype=np.float64)
+    t1 = period*duty/100
+    t2 = t1 + 1.0/(freq*ndata)
+    t3 = period - 1.0/(freq*ndata)
+
+    ts[0] = 0.0
+    vs[0] = 1.0
+    ts[1] = t1
+    vs[1] = 1.0
+    ts[2] = t2
+    vs[2] = -1.0
+    ts[3] = t3
+    vs[3] = -.10
+
+    return (ts, vs)
+</code></pre>
+<ul>
+<li>上記のPythonスクリプトを実行して，WF1968機器から送信した，制御点形式の方形波の任意波形データを，DL950機器で取り込んだものをグラフ描画した結果を下記に示します．</li>
+<li>WF1968機器から送信する任意波形データのデータ数と，DL950機器で取込む波形データのデータ数が異なっていても，正しく波形データを取り込めていることが確認出来ます．</li>
+</ul>
+<p><img alt="制御点形式の方形波の任意波形データ.png" src="../%E5%88%B6%E5%BE%A1%E7%82%B9%E5%BD%A2%E5%BC%8F%E3%81%AE%E6%96%B9%E5%BD%A2%E6%B3%A2%E3%81%AE%E4%BB%BB%E6%84%8F%E6%B3%A2%E5%BD%A2%E3%83%87%E3%83%BC%E3%82%BF.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "toc.integrate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
